@@ -3,25 +3,21 @@ package com.web.test.model;
 public class Electric {
 
 	private int meterId;
-	private long currentMeterRd;
-	private long previousMeterRd;
+	private int currentMeterRd;
+	private int previousMeterRd;
 	private String zone;
 	
 	public Electric() {
 		
 	}
 	
-	
-
-	public Electric(int meterId, long currentMeterRd, long previousMeterRd, String zone) {
+	public Electric(int meterId, int currentMeterRd, int previousMeterRd, String zone) {
 		super();
 		this.meterId = meterId;
 		this.currentMeterRd = currentMeterRd;
 		this.previousMeterRd = previousMeterRd;
 		this.zone = zone;
 	}
-
-
 
 	public int getMeterId() {
 		return meterId;
@@ -31,19 +27,19 @@ public class Electric {
 		this.meterId = meterId;
 	}
 
-	public long getCurrentMeterRd() {
+	public int getCurrentMeterRd() {
 		return currentMeterRd;
 	}
 
-	public void setCurrentMeterRd(long currentMeterRd) {
+	public void setCurrentMeterRd(int currentMeterRd) {
 		this.currentMeterRd = currentMeterRd;
 	}
 
-	public long getPreviousMeterRd() {
+	public int getPreviousMeterRd() {
 		return previousMeterRd;
 	}
 
-	public void setPreviousMeterRd(long previousMeterRd) {
+	public void setPreviousMeterRd(int previousMeterRd) {
 		this.previousMeterRd = previousMeterRd;
 	}
 

@@ -1,13 +1,13 @@
 package com.web.test.service;
 
-import java.util.List;
+//import java.util.List;
 
-import com.web.test.model.Electric;
+//import com.web.test.model.Electric;
 
 
 public interface ConsumerService {
 
 	boolean isValidId(int meterId);
 
-	List<Electric> getData();
+	//List<Electric> getData();
 }

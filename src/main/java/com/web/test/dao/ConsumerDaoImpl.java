@@ -12,7 +12,7 @@ import com.web.test.model.Electric;
 
 public class ConsumerDaoImpl implements ConsumerDao{
 
-	@Override
+	//@Override
 	public List<Electric> getData() {
 		List<Electric> elecList = new ArrayList<>();
 		Connection con = null;
@@ -29,11 +29,11 @@ public class ConsumerDaoImpl implements ConsumerDao{
 			    con = DriverManager.getConnection(url, user, password);
 				Statement stmt = con.createStatement();
 				
-				ResultSet rs = stmt.executeQuery("select * from electric");
+				ResultSet rs = stmt.executeQuery("select * from electric ");
 				
 				
 				while(rs.next()) {
-					elecList.add(new Electric(rs.getInt(1), rs.getLong(2),rs.getLong(3),rs.getString(4)));
+					elecList.add(new Electric(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4)));
 				}
 				
 			} catch (Exception e) {

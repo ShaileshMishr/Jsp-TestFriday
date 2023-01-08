@@ -14,6 +14,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
+import com.web.test.dao.ConsumerDao;
+import com.web.test.dao.ConsumerDaoImpl;
 import com.web.test.model.Electric;
 import com.web.test.service.ConsumerService;
 import com.web.test.service.ConsumerServiceImpl;
@@ -48,23 +50,32 @@ public class BillFilter extends HttpFilter implements Filter {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		int meterid = Integer.parseInt(request.getParameter("id"));
+		int meterId = Integer.parseInt(request.getParameter("meterId"));
 		
 		ConsumerService service = new ConsumerServiceImpl();
-		
-			if(service.isValidId(meterid)) {
-			
-				
-			
-			List<Electric> elecList = service.getData();
-			
-		request.setAttribute("elecList", elecList);
-			chain.doFilter(request, response);
+		 
+			if(service.isValidId(meterId)) {
+				ConsumerDao dao = new ConsumerDaoImpl();
+				List<Electric> eleList = dao.getData();
+				for(Electric ele:eleList) {
+					if(ele.getMeterId()==meterId) {
+						request.setAttribute("meterId", meterId);
+						request.setAttribute("currRead", ele.getCurrentMeterRd());
+						request.setAttribute("prevRead", ele.getPreviousMeterRd());
+						request.setAttribute("zone", ele.getZone());
+						
+						chain.doFilter(request, response);
+
+						
+					}
+					
+				}
+
 	}
 		else {
-			out.print("<h2>** Incorrect Meter Id **</h2> ");
+			//out.print("<h2>** Meter Id does not exist**</h2> ");
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			RequestDispatcher rd = request.getRequestDispatcher("new.jsp");
 			rd.include(request, response);
 		}
 		

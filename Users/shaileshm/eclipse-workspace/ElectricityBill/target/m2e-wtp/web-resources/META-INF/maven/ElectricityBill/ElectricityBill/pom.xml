@@ -20,24 +20,26 @@
     </plugins>
   </build>
   
-   
+   <dependencies>
 	 
-	<dependencies>
-		
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.30</version>
-    </dependency>
-<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>jstl</artifactId>
-		<version>1.2</version>
- </dependency>
- 
-  </dependencies>
 				 
-				
+				 <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.31</version>
+</dependency>
+
+<dependency>
+
+<groupId>javax.servlet</groupId>
+
+<artifactId>jstl</artifactId>
+
+<version>1.2</version>
+
+</dependency>
+				 
+				 </dependencies>
 				 
 				 
   

@@ -33,37 +33,9 @@ public class WelcomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		
-		
-		
-		List<Electric> elcList = (List<Electric>)request.getAttribute("elecList");
-		
-		out.print("<a href='product.html' class='link'><button type=\"button\">ADD PRODUCT</button></a>");
-		out.print("<a href='delete.html' class='link'><button type=\"button\">DELETE PRODUCT</button></a>");
-		out.print("<a href='update.html'><button type=\"button\">UPDATE PRODUCT</button></a><br><br>");
-		out.println("</div>");
-
-	
-		    out.println("<br><br><br><table border='5' class='center' > ");
-			out.println("<tr> <th>");
-			out.println("Meter ID </th>");
-			out.println("<th> Current Meter Reading </th>");
-			out.println("<th>Previous Meter Reading </th>");
-			out.println("<th>Zone </th>");
-
-			
-			for(Electric elc:elcList) {
-				out.println("<tr><td>" +elc.getMeterId() +"</td>");
-				out.println("<td>" +elc.getCurrentMeterRd() +"</td> ");
-				out.println("<td>" +elc.getPreviousMeterRd() +"</td> ");
-				out.println("<td>" +elc.getZone() +"</td> </tr>");
-			}
-			
+							
 			RequestDispatcher rd = request.getRequestDispatcher("welcome2.jsp");
-			rd.forward(request, response);
+			rd.include(request, response);
 	}
 
 	/**
